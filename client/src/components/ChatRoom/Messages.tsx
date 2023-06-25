@@ -25,7 +25,7 @@ export const Messages: React.FC<MessagesProps> = ({ messages, userId }) => {
               message.userId === userId ? classes["messages__item--my"] : ""
             }`}
           >
-            <div className={classes.messages__author}>{message.userName}</div>
+            <div className={classes.messages__author}>{message.userName} {new Date(message.createdAt).toLocaleString()}</div>
             <p className={classes.messages__text}>{message.text}</p>
           </div>
         </div>

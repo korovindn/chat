@@ -10,21 +10,23 @@ interface SendMessageProps {
 export const SendMessage: React.FC<SendMessageProps> = ({ sendMessage }) => {
   const [message, setMessage] = useState("");
   return (
-    <div className={classes.send}>
+    <form className={classes.send}>
       <Input
         value={message}
         className={classes.send__input}
         onChange={(e) => setMessage(e.target.value)}
       />
       <Button
+        primary
         className={classes.send__button}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           sendMessage(message);
           setMessage("");
         }}
       >
         Отправить
       </Button>
-    </div>
+    </form>
   );
 };

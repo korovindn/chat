@@ -23,7 +23,7 @@ export const appReducer = (
     case SET_USERNAME:
       return {
         ...state,
-        userName: action.payload.username,
+        userName: action.payload.userName,
       }
     case SET_MESSAGES:
       return {

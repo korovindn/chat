@@ -10,6 +10,7 @@ export interface Message {
   userName: string;
   userId: string;
   text: string;
+  createdAt: number;
 }
 
 export interface AppState {
