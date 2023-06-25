@@ -1,7 +1,6 @@
 import { io, ManagerOptions, SocketOptions } from "socket.io-client";
-
-const URL = "http://localhost:4000";
+import { SERVER_URL } from "./config";
 
 export const webSocketConnect = (
   options: Partial<SocketOptions & ManagerOptions>
-) => io(URL, options);
+) => io(SERVER_URL, options);

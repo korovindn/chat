@@ -7,6 +7,7 @@ mkdir my_app
 cd my_app
 git clone https://github.com/korovindn/chat.git
 cd client
+echo "export const SERVER_URL = {your_server_url};" > config.ts
 npm i 
 npm run start
 cd ../server
