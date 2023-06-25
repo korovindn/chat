@@ -8,7 +8,7 @@ interface RoomsItemProps {
 
 export const RoomsItem: React.FC<RoomsItemProps> = ({ room }) => {
   return (
-    <Link className={classes.item} key={room.roomId} to={`/rooms/${room.roomId}`}>
+    <Link className={classes.item} to={`/rooms/${room.roomId}`}>
       <li className={classes.item__li}>
         <div className={classes.item__image}>
           {room.img ? "" : room.name[0].toUpperCase()}

@@ -15,12 +15,15 @@ a {
 }
 
 $primary-color: #ff5733;
+$primary-color-dark: #ee4622;
+$secondary-color: #eee;
+$secondary-color-dark: #ddd;
 
 $space-s: 8px;
 $space: 16px;
 $space-l: 32px;
 
-$border: 1px solid #eee;
+$border: 1px solid $secondary-color;
 $border-primary: 1px solid $primary-color;
 
 $br-s: 4px;
@@ -52,4 +55,11 @@ $font-l: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin baseControl {
+  padding: $space-s;
+  border-radius: $br-s;
+  outline: 0;
+  transition: $transition;
 }
