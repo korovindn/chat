@@ -1,0 +1,19 @@
+@import "../../index.scss";
+
+.send {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  display: flex;
+  gap: $space;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-top: $border;
+  padding: 0 $space;
+  &__input{
+    flex: auto;
+  }
+}

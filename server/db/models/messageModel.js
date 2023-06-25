@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
 const messageSchema = new Schema(
   {
@@ -8,6 +8,10 @@ const messageSchema = new Schema(
       auto: true,
       required: true,
       unique: true,
+    },
+    userId: {
+      type: String,
+      required: true,
     },
     roomId: {
       type: String,
@@ -27,4 +31,4 @@ const messageSchema = new Schema(
   }
 );
 
-export const Message =  model("Message", messageSchema);
+export const Message = model("Message", messageSchema);

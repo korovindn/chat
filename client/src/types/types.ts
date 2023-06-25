@@ -8,6 +8,7 @@ export interface Room {
 export interface Message {
   messageId: string;
   userName: string;
+  userId: string;
   text: string;
 }
 

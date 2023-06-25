@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+.messages {
+  display: flex;
+  max-height: calc(100vh - $header-height * 3);
+  overflow-y: scroll;
+  flex-direction: column;
+  padding: 0 $space;
+  gap: $space-s;
+  &__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    &--my{
+      justify-content: flex-end;
+    }
+  }
+  &__item{
+    padding: $space-s;
+    border-radius: $space;
+    background-color: $secondary-color;
+    &--my{
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+  &__author{
+    margin-bottom: $space-s;
+    font-weight: 700;
+  }
+  &__text{
+    margin: 0;
+  }
+}

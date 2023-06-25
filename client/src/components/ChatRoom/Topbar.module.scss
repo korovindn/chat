@@ -1,0 +1,18 @@
+@import "../../index.scss";
+
+.topbar{
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $border;
+  height: $header-height;
+  padding: 0 $space-l;
+  &__title{
+    font-weight: 700;
+  }
+  &__back{
+    text-decoration: none;
+  }
+}
+

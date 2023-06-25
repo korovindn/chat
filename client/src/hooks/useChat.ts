@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { Socket } from "socket.io-client";
 import { webSocketConnect } from "../socket";
 import { Message } from "../types/types";
+import { nanoid } from "nanoid";
 
 export const useChat = (roomId?: string, userName?: string) => {
   const socket = useRef<Socket | null>(null);
+  const { current: userId } = useRef<string>(nanoid());
   const [messages, setMessages] = useState<Message[]>([]);
-  const [users, setUsers] = useState<{userName: string}[]>([]);
+  const [users, setUsers] = useState<{ userName: string }[]>([]);
   useEffect(() => {
     if (roomId) {
       socket.current = webSocketConnect({ query: { roomId, userName } });
@@ -15,15 +17,17 @@ export const useChat = (roomId?: string, userName?: string) => {
       socket.current.on("messages:update", (messages: Message[]) =>
         setMessages(messages)
       );
-      socket.current.on("users:update", (users: {userName: string}[]) => setUsers(users));
+      socket.current.on("users:update", (users: { userName: string }[]) =>
+        setUsers(users)
+      );
       return () => {
         socket.current?.disconnect();
       };
     }
   }, [roomId, userName]);
-  const sendMessage = (message: string) => {
+  const sendMessage = (text: string) => {
     if (userName && roomId)
-      socket.current?.emit("messages:add", { text: message, userName, roomId });
+      socket.current?.emit("messages:add", { text, userName, roomId, userId });
   };
-  return { users, messages, sendMessage };
+  return { userId, users, messages, sendMessage };
 };
