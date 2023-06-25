@@ -1,6 +1,8 @@
 # chat
 ```
-git clone
+mkdir my_app
+cd my_app
+git clone https://github.com/korovindn/chat.git
 cd client
 npm i 
 npm run start
