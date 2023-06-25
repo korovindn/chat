@@ -1,0 +1,15 @@
+@import "../../../index.scss";
+
+.input{
+  padding: $space-s;
+  border: $border;
+  border-radius: $br-s;
+  outline: 0;
+  transition: $transition;
+  &:hover{
+    border: $border-primary;
+  }
+  &:focus{
+    border: $border-primary;
+  }
+}

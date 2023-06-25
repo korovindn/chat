@@ -1,0 +1,23 @@
+@import "../../../index.scss";
+
+.item {
+  text-decoration: none;
+  & &__li{
+    display: flex;
+    align-items: center;
+    gap: $space;
+    padding: $space;
+    border-bottom: $border;
+  }
+  &:last-child &__li{
+    border-bottom: 0;
+  }
+  &__image {
+    @include circle($image-size);
+    @include flexCenter;
+    background-color: $primary-color;
+    color: white;
+    font-size: $font-l;
+  }
+}
+

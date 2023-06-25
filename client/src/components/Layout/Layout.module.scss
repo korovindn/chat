@@ -1,0 +1,12 @@
+@import "../../index.scss";
+
+.header {
+  @include flexCenter;
+  background-color: $primary-color;
+  color: white;
+  height: $header-height;
+  &__text {
+    font-size: $font-l;
+    font-weight: 700;
+  }
+}
