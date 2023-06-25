@@ -18,6 +18,7 @@ $primary-color: #ff5733;
 $primary-color-dark: #ee4622;
 $secondary-color: #eee;
 $secondary-color-dark: #ddd;
+$secondary-text-color: grey;
 
 $space-s: 8px;
 $space: 16px;
@@ -38,6 +39,7 @@ $image-size: 75px;
 $header-height: 75px;
 
 $font-l: 24px;
+$font-s: 12px;
 
 @mixin resetList {
   list-style: none;
@@ -62,4 +64,5 @@ $font-l: 24px;
   border-radius: $br-s;
   outline: 0;
   transition: $transition;
+  box-sizing: border-box;
 }

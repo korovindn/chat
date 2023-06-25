@@ -1,13 +1,22 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router-dom";
+import { useChat } from "../../hooks/useChat";
+import { useAppSelector } from "../../redux/hooks";
+import { Input } from "../shared/Input/Input";
+import { Button } from "../shared/Button/Button";
 
 export const ChatRoom = () => {
-  const roomId = useParams();
-  useEffect(() => console.log(roomId), [roomId])
+  const { roomId } = useParams();
+  const { userName, message, rooms } = useAppSelector((state) => state);
+  const { users, messages, sendMessage } = useChat(roomId, userName);
+  const room = useMemo(
+    () => rooms.find((room) => room.roomId === roomId),
+    [roomId]
+  );
+
   return (
     <>
-      {/* room: {roomId}<br/>
-      users: {users.map(user => user.userName)}
+      {room?.name}
       <div>
         {messages.map((message) => (
           <div key={message.messageId}>
@@ -15,8 +24,8 @@ export const ChatRoom = () => {
           </div>
         ))}
       </div>
-      <input value={message} onChange={(e) => setMessage(e.target.value)} />
-      <button onClick={() => sendMessage(message)}>Отправлить</button> */}
+      <Input />
+      <Button onClick={() => sendMessage(message)}>Отправлить</Button>
     </>
   );
-}
+};

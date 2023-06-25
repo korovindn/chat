@@ -1,6 +1,7 @@
 import React, { FormHTMLAttributes, ReactElement } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "../Button/Button";
+import classes from "./Form.module.scss"
 
 type Rule = (data: { [key: string]: any }, value: string) => boolean;
 
@@ -26,12 +27,12 @@ export const Form: React.FC<FormProps> = ({ fields, onOk, ...props }) => {
   } = useForm();
 
   return (
-    <form {...props} onSubmit={handleSubmit(onOk)}>
+    <form {...props} onSubmit={handleSubmit(onOk)} className={`${classes.form} ${props.className}`}>
       {fields.map((field) => (
-        <div key={field.name}>
+        <div key={field.name} className={classes.form__item}>
           <label>
-            <div>{field.label}</div>
-            {React.cloneElement(field.children, register(field.name))}
+            <div className={classes.form__label}>{field.label}</div>
+            {React.cloneElement(field.children, {...register(field.name), className: classes.form__input})}
           </label>
         </div>
       ))}

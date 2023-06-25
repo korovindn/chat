@@ -8,8 +8,8 @@ export const AddRoom: React.FC = () => {
 
   return (
     <div className={classes.add__wrapper}>
-      <Button className={classes.add__button} primary onClick={() => setFormVisible(!formVisible)}>
-        {formVisible ? "- Отмена" : "+ Создать свою"}
+      <Button className={classes.add__button} primary={!formVisible} onClick={() => setFormVisible(!formVisible)}>
+        {formVisible ? "Отмена" : "Создать свою"}
       </Button>
       {formVisible ? (
         <div>

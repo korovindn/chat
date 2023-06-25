@@ -1,0 +1,13 @@
+@import "../../../index.scss";
+
+.textarea{
+  @include baseControl;
+  border: $border;
+  resize: none;
+  &:hover{
+    border: $border-primary;
+  }
+  &:focus{
+    border: $border-primary;
+  }
+}

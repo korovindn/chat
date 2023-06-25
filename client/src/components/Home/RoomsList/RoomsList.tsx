@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { RoomsItem } from "./RoomsItem";
 import { AddRoom } from "./AddRoom";
 import { Input } from "../../shared/Input/Input";
+import { Empty } from "../../shared/Empty/Empty";
 
 export const RoomsList: React.FC = () => {
   const { rooms } = useAppSelector((state) => state);
@@ -31,11 +32,16 @@ export const RoomsList: React.FC = () => {
         className={classes.search}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        disabled={!rooms.length}
       />
       <ul className={classes.list}>
-        {filteredRooms.map((room) => (
-          <RoomsItem key={room.roomId} room={room} />
-        ))}
+        {filteredRooms.length ? (
+          filteredRooms.map((room) => (
+            <RoomsItem key={room.roomId} room={room} />
+          ))
+        ) : (
+          <Empty message="Комнат пока нет"/>
+        )}
       </ul>
       <AddRoom />
     </>

@@ -7,6 +7,7 @@ export const getRooms = async (req, res) => {
 export const addRoom = async (req, res) => {
   try {
     await Room.create(req.body);
+    res.send("ok");
   } catch (e) {
     console.error(e);
     res

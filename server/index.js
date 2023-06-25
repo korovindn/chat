@@ -16,8 +16,11 @@ app.use(
 
 app.use(express.json());
 
-app.get("/rooms", getRooms);
-app.post("/rooms", addRoom);
+const router = express.Router();
+router.get("/rooms", getRooms);
+router.post("/rooms", addRoom);
+
+app.use("/api", router);
 
 connectDb();
 

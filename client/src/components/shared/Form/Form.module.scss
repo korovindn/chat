@@ -1,0 +1,14 @@
+@import "../../../index.scss";
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+  &__input{
+    width: 100%;
+  }
+  &__label{
+    font-size: $font-s;
+    color: $secondary-text-color;
+  }
+}
