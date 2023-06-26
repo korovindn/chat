@@ -5,7 +5,8 @@
   max-height: calc(100vh - $header-height * 3);
   overflow-y: scroll;
   flex-direction: column;
-  padding: 0 $space;
+  box-sizing: border-box;
+  padding: $space;
   gap: $space-s;
   &__wrapper {
     display: flex;

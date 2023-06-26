@@ -16,6 +16,8 @@
     @include circle($image-size);
     @include flexCenter;
     background-color: $primary-color;
+    background-size: cover;
+    background-position: center;
     color: white;
     font-size: $font-l;
   }

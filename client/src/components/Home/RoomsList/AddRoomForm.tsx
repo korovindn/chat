@@ -23,8 +23,24 @@ export const AddRoomForm: React.FC = () => {
             label: "Описание",
             children: <Textarea />,
           },
+          {
+            name: "picture",
+            label: "Изображение",
+            children: <input type="file" />,
+          },
         ]}
-        onOk={(data) => dispatch(addRoom(data as Room))}
+        onOk={(data) => {
+          const formData = new FormData();
+          formData.append("picture", data.picture[0]);
+          fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then(({ path }) =>
+              dispatch(addRoom({ ...data, img: path } as Room))
+            );
+        }}
       />
     </div>
   );

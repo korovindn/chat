@@ -5,6 +5,8 @@ import { ALLOWED_ORIGIN } from "./config.js";
 import { connectDb } from "./db/db.js";
 import { connectSocket } from "./socket/socket.js";
 import { addRoom, getRooms } from "./handlers/roomsHandlers.js";
+import { uploadFile } from "./handlers/uploadHandler.js";
+import fileUpload from "express-fileupload";
 
 const app = express();
 
@@ -13,12 +15,19 @@ app.use(
     origin: ALLOWED_ORIGIN,
   })
 );
-
+app.use(express.static('public'));
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
 router.get("/rooms", getRooms);
 router.post("/rooms", addRoom);
+router.post("/upload", uploadFile);
 
 app.use("/api", router);
 
